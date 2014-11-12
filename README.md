@@ -7,23 +7,22 @@ The form could be injected into a widget, or used inside a page through the Mail
 
 ## Maintainer Contact
 
-Gabriele Brosulo
-
-<gabriele.brosulo (at) zirak (dot) it>
-
-## Requirements
-
-* Silverstripe 3.1
-
-## Suggestions
-
-* silverstripe/widget
-* zirak/widget-pages-extension
+Gabriele Brosulo [gabriele.brosulo (at) zirak (dot) it]
 
 ## Features
 
 * Subscription widget form
 * Static function callable from outside
+
+## Requirements
+
+* Silverstripe framework 3.1.*
+* Silverstripe cms 3.1.*
+
+## Suggestions
+
+* silverstripe/widget
+* zirak/widget-pages-extension
 
 ## Install
 
