@@ -1,5 +1,5 @@
 {
-	"name": "zirak/mailchimp",
+	"name": "zirak/silverstripe-mailchimp",
 	"type": "silverstripe-module",
 	"description": "Adds mailchimp integration to SilverStripe, eventually inside a widget",
 	"keywords": ["silverstripe", "mailchimp", "widget", "newsletter", "mailinglist"],

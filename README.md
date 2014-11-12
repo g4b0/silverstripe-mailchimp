@@ -29,7 +29,7 @@ Gabriele Brosulo [gabriele.brosulo (at) zirak (dot) it]
 Install it through composer: 
 
 ```
-	composer require zirak/mailchimp
+	composer require zirak/silverstripe-mailchimp
 ```
 
 ### Using in a page
