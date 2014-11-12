@@ -1,0 +1,22 @@
+{
+	"name": "zirak/silverstripe-mailchimp",
+	"type": "silverstripe-module",
+	"description": "Adds mailchimp integration to SilverStripe, eventually inside a widget",
+	"keywords": ["silverstripe", "mailchimp", "widget", "newsletter", "mailinglist"],
+	"authors": [{
+			"name": "Gabriele Brosulo - Zirak",
+			"email": "gabriele.brosulo@zirak.it"
+		}],
+	"require": {
+		"silverstripe/framework": "3.1.*",
+		"silverstripe/cms": "3.1.*"
+	},
+	"suggest": {
+    "silverstripe/widgets": "Allows having mailchimp subscription inside widgets",
+    "zirak/widget-pages-extension": "Allows having mailchimp subscription form in a single widget shared through pages"
+   },
+	"minimum-stability": "dev",
+	"extra": {
+		"installer-name": "mailchimp"
+	}
+}

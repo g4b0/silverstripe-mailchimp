@@ -1,0 +1,8 @@
+en:
+  SiteTree:
+    PLURALNAME: Pages
+    SINGULARNAME: Page
+  MailChimpLandingPage:
+    DESCRIPTION: 'Generic content page'
+    PLURALNAME: 'Mail Chimp Landing Pags'
+    SINGULARNAME: 'Mail Chimp Landing Page'
