@@ -14,7 +14,11 @@ Gabriele Brosulo
 ## Requirements
 
 * Silverstripe 3.1
-* widget-pages-extension
+
+## Suggestions
+
+* silverstripe/widget
+* zirak/widget-pages-extension
 
 ## Features
 
@@ -23,8 +27,11 @@ Gabriele Brosulo
 
 ## Install
 
-- Install it through composer: 
+Install it through composer: 
+
+```
 	composer require zirak/mailchimp
+```
 
 ### Using in a page
 
