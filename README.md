@@ -3,7 +3,9 @@ silverstripe-mailchimp
 
 MailChimp subscription form
 
-The form could be injected into a widget, or used inside a page through the MailChimp extension
+Customizable mailchimp subscribtion form. Simply put the form into your template, and eventually
+customize it through a .ss template file.
+It could also be injected into a widget, or used inside a page through the MailChimpExtension extension.
 
 ## Maintainer Contact
 
@@ -11,8 +13,11 @@ Gabriele Brosulo [gabriele.brosulo (at) zirak (dot) it]
 
 ## Features
 
+* Customizable form template
 * Subscription widget form
 * Static function callable from outside
+
+*Warning!* Version 2.0 is not compatible with 1.* configuration. Page extension now is MailChimpExtension (no more MailChip)
 
 ## Requirements
 
