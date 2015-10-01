@@ -27,8 +27,8 @@ class MailChimpSubscribeForm extends Form {
 		try {
 			$this->mcGroups = $this->mc->lists->interestGroupings(Config::inst()->get('MailChimpController', 'listid'));
 		} catch (Mailchimp_Error $e) {
-			echo $e->getMessage();
-			exit;
+			// No groups
+      $this->mcGroups = array();
 		}
 		
 		// Creo il Form
@@ -38,7 +38,6 @@ class MailChimpSubscribeForm extends Form {
 		 * EMAIL
 		 */
 		$email = new EmailField('Email', 'Email');
-		$email->setValue('Your e-mail');
 		array_push($fieldsArr, $email);
 
 		/*
