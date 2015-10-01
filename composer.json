@@ -12,9 +12,9 @@
 		"silverstripe/cms": "3.1.*"
 	},
 	"suggest": {
-    "silverstripe/widgets": "Allows having mailchimp subscription inside widgets",
-    "zirak/widget-pages-extension": "Allows having mailchimp subscription form in a single widget shared through pages"
-   },
+		"silverstripe/widgets": "Allows having mailchimp subscription inside widgets",
+		"zirak/widget-pages-extension": "Allows having mailchimp subscription form in a single widget shared through pages"
+	},
 	"minimum-stability": "dev",
 	"extra": {
 		"installer-name": "mailchimp"

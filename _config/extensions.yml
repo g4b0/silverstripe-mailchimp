@@ -1,0 +1,6 @@
+---
+Name: mailchimp-extensions
+---
+Controller:
+  extensions:
+    - MailChimpExtension

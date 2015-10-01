@@ -55,8 +55,7 @@ if (class_exists('Widget')) {
 		}
 
 		public function McSubscribeForm() {
-			$controller = new MailChimpController();
-			return $controller->McSubscribeForm();
+			return new MailChimpSubscribeForm(Controller::curr(), 'MailChimpSubscribeForm');
 		}
 
 	}
