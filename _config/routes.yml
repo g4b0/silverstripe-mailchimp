@@ -1,0 +1,7 @@
+---
+Name: MailChimpController
+After: 'framework/routes/#coreroutes'
+---
+Director:
+  rules:
+    'MailChimpController//$Action': 'MailChimpController'
