@@ -53,8 +53,13 @@ class MailChimpController extends Controller {
 		$fieldsArr = array();
 
 		$email = new EmailField('Email', 'Email');
-		$email->setValue('Your e-mail');
 		array_push($fieldsArr, $email);
+
+		$fname = new TextField('fname', 'First Name');
+		array_push($fieldsArr, $fname);
+
+		$lname = new TextField('lname', 'Last Name');
+		array_push($fieldsArr, $lname);
 
 		if (Config::inst()->get('MailChimpController', 'country')) {
 			$country = new CountryDropdownField('Country', 'Country');
@@ -79,7 +84,7 @@ class MailChimpController extends Controller {
 						new FormAction('McDoSubscribeForm', 'Send Now')
 		);
 		$required = new RequiredFields(
-						array('Email')
+						array('Email', 'lname', 'fname')
 		);
 
 		$form = new Form($this, 'McSubscribeForm', $fields, $actions, $required);
@@ -96,29 +101,29 @@ class MailChimpController extends Controller {
 	 */
 	public function McDoSubscribeForm($data, Form $form) {
 		
-		$country = Zend_Locale::getTranslation($data['Country'], "country", 'en_US');
-		
 		$topicsArr = Config::inst()->get('MailChimpController', 'topicsArr');
 		$interest = array();
 		$interestTxt = '';
 		$i=0;
-		foreach ($data['Topics'] as $id) {
-			array_push($interest, $topicsArr[$id]);
-			$interestTxt .= $topicsArr[$id];
-			if (++$i < count($data['Topics'])) {
-				$interestTxt .= ',';
+		if (Config::inst()->get('MailChimpController', 'topics')) {
+			foreach ($data['Topics'] as $id) {
+				array_push($interest, $topicsArr[$id]);
+				$interestTxt .= $topicsArr[$id];
+				if (++$i < count($data['Topics'])) {
+					$interestTxt .= ',';
+				}
 			}
 		}
 		
 		$email = $data['Email'];
 		$merge_vars = array(
-				'FNAME' => '', 
-				'LNAME' => '', 
-				'OTHERINT' => $data['Other'], 
-				'COUNTRY' => $country, 
-				'GROUPINGS' => array(
+				'FNAME' => $data['fname'], 
+				'LNAME' => $data['lname'], 
+				'OTHERINT' => (Config::inst()->get('MailChimpController', 'otherTopic')) ? $data['Other'] : '', 
+				'COUNTRY' => (Config::inst()->get('MailChimpController', 'country')) ? Zend_Locale::getTranslation($data['Country'], "country", 'en_US') : '', 
+				'GROUPINGS' => (Config::inst()->get('MailChimpController', 'topics')) ? array(
 						array('name' => 'Areas of Interest', 'groups' => $interestTxt),
-				)
+				) : ''
 		);
 		
 		$regOk = self::McSubscribe($email, $merge_vars);
@@ -148,10 +153,9 @@ class MailChimpController extends Controller {
 	 * @return Boolean
 	 */
 	public static function McSubscribe($email, $merge_vars = array()) {
-		
 		require_once MAILCHIMP . '/lib/MCAPI.class.php';
 		$api = new MCAPI(Config::inst()->get('MailChimpController', 'apikey'));
-		$retVal = $api->listSubscribe(Config::inst()->get('MailChimpController', 'listid'), $email, $merge_vars);
+		$retVal = $api->listSubscribe(Config::inst()->get('MailChimpController', 'listid'), $email, $merge_vars, $email_type='html', $double_optin=false, $update_existing=true, $replace_interests=true, $send_welcome=true);
 
 		// Pulisco la sessione 
 		Session::clear('MAILCHIMP_ERRCODE');
