@@ -61,6 +61,9 @@ class MailChimpController extends Controller {
 		$lname = new TextField('lname', 'Last Name');
 		array_push($fieldsArr, $lname);
 
+		$spam = new TextField('robots', 'Please leave blank');
+		array_push($fieldsArr, $spam);
+
 		if (Config::inst()->get('MailChimpController', 'country')) {
 			$country = new CountryDropdownField('Country', 'Country');
 			array_push($fieldsArr, $country);
@@ -101,6 +104,11 @@ class MailChimpController extends Controller {
 	 */
 	public function McDoSubscribeForm($data, Form $form) {
 		
+		//spam?
+		if($data['robots'] != '') {
+			return $this->redirect(Config::inst()->get('MailChimpController', 'redirect_ko'));
+		}
+
 		$topicsArr = Config::inst()->get('MailChimpController', 'topicsArr');
 		$interest = array();
 		$interestTxt = '';
