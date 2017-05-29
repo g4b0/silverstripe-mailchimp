@@ -91,6 +91,7 @@ class MailChimpController extends Controller {
 		);
 
 		$form = new Form($this, 'McSubscribeForm', $fields, $actions, $required);
+		$form->setLegend('Subscribe to Newsletter');
 
 		return $form;
 	}
