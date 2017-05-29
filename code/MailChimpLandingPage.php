@@ -1,8 +1,8 @@
 <?php
 
+
 class MailChimpLandingPage extends Page
 {
-    public static $allowed_children = array();
     private static $can_create = false;
 }
 

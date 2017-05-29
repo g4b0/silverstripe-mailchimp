@@ -1,6 +1,7 @@
 <div>
 
 	$Content
+	$McSubscribeForm
 	
 	<p>
 	<% if ErrorCode() == 214 %>
